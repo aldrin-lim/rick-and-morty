@@ -1,4 +1,3 @@
-// hooks/useCharacters.ts
 import { useQuery } from "@apollo/client"
 import gql from "graphql-tag"
 
@@ -75,5 +74,5 @@ export const useCharacters = (page?: number, filter?: FilterCharacter) => {
     },
   )
 
-  return { loading, error, characters: data?.characters }
+  return { loading, error, data }
 }
