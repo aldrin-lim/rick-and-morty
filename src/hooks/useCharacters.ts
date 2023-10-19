@@ -75,5 +75,5 @@ export const useCharacters = (page?: number, filter?: FilterCharacter) => {
     },
   )
 
-  return { loading, error, charcters: data?.characters }
+  return { loading, error, characters: data?.characters }
 }
