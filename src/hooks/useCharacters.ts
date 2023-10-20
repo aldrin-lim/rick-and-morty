@@ -1,5 +1,10 @@
 import { useQuery } from "@apollo/client"
 import gql from "graphql-tag"
+import {
+  CharactersData,
+  CharactersVars,
+  FilterCharacter,
+} from "../types/character"
 
 const GET_CHARACTERS = gql`
   query GetCharacters($page: Int, $filter: FilterCharacter) {
@@ -25,46 +30,6 @@ const GET_CHARACTERS = gql`
     }
   }
 `
-
-interface CharacterInfo {
-  count: number
-  pages: number
-  next: number | null
-  prev: number | null
-}
-
-interface CharacterResult {
-  id: string
-  name: string
-  species: string
-  image: string
-  origin: {
-    name: string
-  }
-  location: {
-    name: string
-  }
-}
-
-interface CharactersData {
-  characters: {
-    info: CharacterInfo
-    results: CharacterResult[]
-  }
-}
-
-interface FilterCharacter {
-  name?: string
-  status?: string
-  species?: string
-  type?: string
-  gender?: string
-}
-
-interface CharactersVars {
-  page?: number
-  filter?: FilterCharacter
-}
 
 export const useCharacters = (page?: number, filter?: FilterCharacter) => {
   const { loading, error, data } = useQuery<CharactersData, CharactersVars>(
