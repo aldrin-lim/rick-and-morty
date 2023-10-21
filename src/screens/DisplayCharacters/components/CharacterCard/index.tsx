@@ -36,6 +36,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     name,
     image,
     gender,
+    status,
     species,
     location: { name: location },
     origin: { name: origin },
@@ -56,7 +57,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             <InfoText variant="body1">{gender}</InfoText>
           </Grid>
           <Grid item xs={12}>
-            <InfoText variant="body1">{species}</InfoText>
+            <InfoText variant="body1">{status}</InfoText>
           </Grid>
           <Grid item xs={12}>
             <InfoText variant="body1">{location}</InfoText>
