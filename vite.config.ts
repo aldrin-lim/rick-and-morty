@@ -24,4 +24,5 @@ export default defineConfig({
     setupFiles: "src/setupTests",
     mockReset: true,
   },
+  base: "/rick-and-morty/",
 })
