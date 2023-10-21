@@ -7,7 +7,7 @@ import {
 import { Provider } from "react-redux"
 import configureStore from "redux-mock-store"
 import ApolloMockProvider from "../util/ApolloMockProvider"
-import DisplayCharacters from "../../screens/DisplayCharacters"
+import Characters from "../../screens/Characters"
 import { GET_CHARACTERS } from "../../hooks/useCharacters"
 
 const mockStore = configureStore([])
@@ -70,14 +70,14 @@ const renderWithProviders = (component: React.ReactNode, mocks: any[] = []) => {
   )
 }
 
-describe("DisplayCharacters Component", () => {
+describe("Characters Component", () => {
   it("displays loading message initially", () => {
-    renderWithProviders(<DisplayCharacters />, [mockSuccess])
+    renderWithProviders(<Characters />, [mockSuccess])
     expect(screen.getByText("Loading...")).toBeInTheDocument()
   })
 
   it("displays characters correctly after successful fetch", async () => {
-    renderWithProviders(<DisplayCharacters />, [mockSuccess])
+    renderWithProviders(<Characters />, [mockSuccess])
 
     await waitForElementToBeRemoved(() => screen.queryByText("Loading..."))
 
@@ -86,7 +86,7 @@ describe("DisplayCharacters Component", () => {
   })
 
   it("displays error message on failed fetch", async () => {
-    renderWithProviders(<DisplayCharacters />, [mockError])
+    renderWithProviders(<Characters />, [mockError])
 
     await waitForElementToBeRemoved(() => screen.queryByText("Loading..."))
 

@@ -13,7 +13,7 @@ import { useState, useEffect } from "react"
 import { CharacterInfo } from "../../types/character"
 import CharacterCard from "./components/CharacterCard"
 
-const DisplayCharacters = () => {
+const Characters = () => {
   const { page, filter } = useSelector((state: RootState) => state.character)
   const dispatch = useDispatch<AppDispatch>()
 
@@ -103,4 +103,4 @@ const DisplayCharacters = () => {
   )
 }
 
-export default DisplayCharacters
+export default Characters

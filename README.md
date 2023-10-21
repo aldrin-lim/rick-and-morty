@@ -58,7 +58,7 @@ Visit `http://localhost:3000` in your browser to view the app.
 The project has a clear folder structure:
 
 - **hooks**: Contains custom hooks, such as `useCharacters`.
-- **screens**: Houses the primary display components/screens like `DisplayCharacters`.
+- **screens**: Houses the primary display components/screens like `Characters`.
 - **store**: Contains Redux slices and the Redux store configuration.
 - **types**: Type definitions, mainly for the character data fetched.
 - **components**: Shared components.

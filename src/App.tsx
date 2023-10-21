@@ -1,9 +1,9 @@
-import DisplayCharacters from "./screens/DisplayCharacters"
+import Characters from "./screens/Characters"
 
 function App() {
   return (
     <div className="App">
-      <DisplayCharacters />
+      <Characters />
     </div>
   )
 }
