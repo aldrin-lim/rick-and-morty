@@ -79,7 +79,7 @@ describe("DisplayCharacters Component", () => {
 
     await waitForElementToBeRemoved(() => screen.queryByText("Loading..."))
 
-    const characterElement = screen.getByText("Rick") // Or any other data from your mock
+    const characterElement = screen.queryByText("Rick")
     expect(characterElement).toBeInTheDocument()
   })
 
