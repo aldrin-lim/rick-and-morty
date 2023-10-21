@@ -1,10 +1,6 @@
 import {
   Container,
   Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
   Button,
   TextField,
   CircularProgress,
@@ -15,6 +11,7 @@ import { setPage, setFilter } from "../../store/characterSlice"
 import { RootState, AppDispatch } from "../../store"
 import { useState, useEffect } from "react"
 import { CharacterInfo } from "../../types/character"
+import CharacterCard from "./components/CharacterCard"
 
 const DisplayCharacters = () => {
   const { page, filter } = useSelector((state: RootState) => state.character)
@@ -98,20 +95,7 @@ const DisplayCharacters = () => {
       <Grid container spacing={1.5}>
         {characters.map((char) => (
           <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={char.id}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image={char.image}
-                alt={char.name}
-              />
-              <CardContent>
-                <Typography variant="body1">{char.name}</Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {char.species}
-                </Typography>
-              </CardContent>
-            </Card>
+            <CharacterCard character={char} />
           </Grid>
         ))}
       </Grid>
