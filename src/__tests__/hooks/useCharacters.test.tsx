@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react'
+import { renderHook, waitFor } from '@testing-library/react'
 import { GET_CHARACTERS, useCharacters } from "../../hooks/useCharacters"
 import ApolloMockProvider, {
   ApolloMockProviderProps,
@@ -63,7 +63,7 @@ describe("useCharacters Hook", () => {
   })
 
   it("should handle successful data fetch", async () => {
-    const { result, waitForNextUpdate } = renderHook(
+    const { result } = renderHook(
       () => useCharacters(1, {}),
       {
         wrapper: (props: ApolloMockProviderProps) => (
@@ -72,9 +72,7 @@ describe("useCharacters Hook", () => {
       },
     )
 
-    await act(async () => {
-      await waitForNextUpdate()
-    })
+    await waitFor(() => expect(result.current.loading).toBe(false))
 
     expect(result.current.loading).toBe(false)
     expect(result.current.error).toBeUndefined()
@@ -82,15 +80,13 @@ describe("useCharacters Hook", () => {
   })
 
   it("should handle error state", async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useCharacters(), {
+    const { result } = renderHook(() => useCharacters(), {
       wrapper: (props: ApolloMockProviderProps) => (
         <ApolloMockProvider {...props} mocks={[mockError]} />
       ),
     })
 
-    await act(async () => {
-      await waitForNextUpdate()
-    })
+    await waitFor(() => expect(result.current.loading).toBe(false))
 
     expect(result.current.loading).toBe(false)
     expect(result.current.data).toBeUndefined()
