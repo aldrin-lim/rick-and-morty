@@ -34,22 +34,22 @@ This project uses Vite as its build tool. The following npm scripts are availabl
 
 1. Clone the repository:
 
-\```bash
+```
 git clone <repository-url>
 cd rick-and-morty
-\```
+```
 
 2. Install the dependencies:
 
-\```bash
+```
 npm install
-\```
+```
 
 3. Start the development server:
 
-\```bash
+```
 npm run dev
-\```
+```
 
 Visit `http://localhost:3000` in your browser to view the app.
 
