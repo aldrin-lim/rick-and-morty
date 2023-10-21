@@ -35,7 +35,7 @@ This project uses Vite as its build tool. The following npm scripts are availabl
 1. Clone the repository:
 
 ```
-git clone <repository-url>
+git clone https://github.com/aldrin-lim/rick-and-morty.git
 cd rick-and-morty
 ```
 
@@ -51,7 +51,7 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` in your browser to view the app.
+Visit `http://localhost:5173/rick-and-morty/` in your browser to view the app.
 
 ## Structure
 
@@ -61,6 +61,5 @@ The project has a clear folder structure:
 - **screens**: Houses the primary display components/screens like `Characters`.
 - **store**: Contains Redux slices and the Redux store configuration.
 - **types**: Type definitions, mainly for the character data fetched.
-- **components**: Shared components.
 - **__tests__**: Contains test utilities and test cases.
 
