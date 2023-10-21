@@ -20,6 +20,7 @@ const GET_CHARACTERS = gql`
         name
         species
         image
+        gender
         origin {
           name
         }

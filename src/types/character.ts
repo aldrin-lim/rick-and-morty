@@ -11,6 +11,7 @@ export interface CharacterResult {
   name: string
   species: string
   image: string
+  gender: string
   origin: {
     name: string
   }
