@@ -1,4 +1,3 @@
-
 export interface CharacterInfo {
   count: number
   pages: number

@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from '@testing-library/react'
+import { renderHook, waitFor } from "@testing-library/react"
 import { GET_CHARACTERS, useCharacters } from "../../hooks/useCharacters"
 import ApolloMockProvider, {
   ApolloMockProviderProps,
@@ -63,14 +63,11 @@ describe("useCharacters Hook", () => {
   })
 
   it("should handle successful data fetch", async () => {
-    const { result } = renderHook(
-      () => useCharacters(1, {}),
-      {
-        wrapper: (props: ApolloMockProviderProps) => (
-          <ApolloMockProvider {...props} mocks={[mockSuccess]} />
-        ),
-      },
-    )
+    const { result } = renderHook(() => useCharacters(1, {}), {
+      wrapper: (props: ApolloMockProviderProps) => (
+        <ApolloMockProvider {...props} mocks={[mockSuccess]} />
+      ),
+    })
 
     await waitFor(() => expect(result.current.loading).toBe(false))
 
