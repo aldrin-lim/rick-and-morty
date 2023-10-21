@@ -1,27 +1,66 @@
-# vite-template-redux
+# Rick and Morty Character Explorer
 
-Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
+This project allows users to explore characters from the Rick and Morty series using data fetched from the Rick and Morty GraphQL API. Users can paginate through the list of characters and filter the list by character names.
 
-```sh
-npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
-```
+## Features
 
-## Goals
+- Display a list of Rick and Morty characters.
+- Paginate through the list of characters.
+- Search characters by their names.
+- View details about a character by hovering over their card.
 
-- Easy migration from Create React App or Vite
-- As beginner friendly as Create React App
-- Optimized performance compared to Create React App
-- Customizable without ejecting
+## Technologies Used
 
-## Scripts
+- React (v18.2.0)
+- Redux & React-Redux
+- Redux Toolkit
+- Apollo Client (for GraphQL)
+- MUI (Material-UI)
+- Emotion (for styled components)
 
-- `dev`/`start` - start dev server and open browser
-- `build` - build for production
-- `preview` - locally preview production build
-- `test` - launch test runner
+## Development
 
-## Inspiration
+This project uses Vite as its build tool. The following npm scripts are available:
 
-- [Create React App](https://github.com/facebook/create-react-app/tree/main/packages/cra-template)
-- [Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react)
-- [Vitest](https://github.com/vitest-dev/vitest/tree/main/examples/react-testing-lib)
+- `npm run dev`: Start the development server
+- `npm run build`: Build the project for production
+- `npm run preview`: Preview the production build
+- `npm run test`: Run tests using Vite's testing utility
+- `npm run format`: Format the code using Prettier
+- `npm run lint`: Lint the project using ESLint
+- `npm run type-check`: Check types with TypeScript
+
+## Installation
+
+1. Clone the repository:
+
+\```bash
+git clone <repository-url>
+cd rick-and-morty
+\```
+
+2. Install the dependencies:
+
+\```bash
+npm install
+\```
+
+3. Start the development server:
+
+\```bash
+npm run dev
+\```
+
+Visit `http://localhost:3000` in your browser to view the app.
+
+## Structure
+
+The project has a clear folder structure:
+
+- **hooks**: Contains custom hooks, such as `useCharacters`.
+- **screens**: Houses the primary display components/screens like `DisplayCharacters`.
+- **store**: Contains Redux slices and the Redux store configuration.
+- **types**: Type definitions, mainly for the character data fetched.
+- **components**: Shared components.
+- **__tests__**: Contains test utilities and test cases.
+
