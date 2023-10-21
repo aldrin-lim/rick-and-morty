@@ -1,7 +1,8 @@
 import { renderHook, act } from "@testing-library/react-hooks"
-import { MockedProvider } from "@apollo/client/testing"
 import { GET_CHARACTERS, useCharacters } from "../../hooks/useCharacters"
-import React from "react"
+import ApolloMockProvider, {
+  ApolloMockProviderProps,
+} from "../util/ApolloMockProvider"
 
 const mockedData = {
   characters: {
@@ -46,19 +47,11 @@ const mockError = {
   error: new Error("An error occurred"),
 }
 
-type WrapperProps = React.PropsWithChildren<{ mocks?: any[] }>
-
-const Wrapper: React.FC<WrapperProps> = ({ children, mocks = [] }) => (
-  <MockedProvider mocks={mocks} addTypename={false}>
-    {children}
-  </MockedProvider>
-)
-
 describe("useCharacters Hook", () => {
   it("should show loading state initially", () => {
     const { result } = renderHook(() => useCharacters(), {
-      wrapper: (props: WrapperProps) => (
-        <Wrapper {...props} mocks={[mockSuccess]} />
+      wrapper: (props: ApolloMockProviderProps) => (
+        <ApolloMockProvider {...props} mocks={[mockSuccess]} />
       ),
     })
 
@@ -71,8 +64,8 @@ describe("useCharacters Hook", () => {
     const { result, waitForNextUpdate } = renderHook(
       () => useCharacters(1, {}),
       {
-        wrapper: (props: WrapperProps) => (
-          <Wrapper {...props} mocks={[mockSuccess]} />
+        wrapper: (props: ApolloMockProviderProps) => (
+          <ApolloMockProvider {...props} mocks={[mockSuccess]} />
         ),
       },
     )
@@ -88,8 +81,8 @@ describe("useCharacters Hook", () => {
 
   it("should handle error state", async () => {
     const { result, waitForNextUpdate } = renderHook(() => useCharacters(), {
-      wrapper: (props: WrapperProps) => (
-        <Wrapper {...props} mocks={[mockError]} />
+      wrapper: (props: ApolloMockProviderProps) => (
+        <ApolloMockProvider {...props} mocks={[mockError]} />
       ),
     })
 
